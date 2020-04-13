@@ -1,0 +1,14 @@
+language: python
+python:
+    - "3.8"
+install:
+    - pip install -r requirements.txt
+script:
+    - mkdocs build
+deploy:
+    - provider: pages
+      github-token: $GITHUB_TOKEN
+      local-dir: site
+      skip-cleanup: true
+      on:
+          branch: master
